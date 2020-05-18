@@ -50,6 +50,9 @@ int lastValue3 = 0;
 int xval;
 int yval;
 int zval;
+
+double roll = 0.00, pitch = 0.00;       //Roll & Pitch are the angles which rotate by the axis X and y
+
 int accel;
 
 int readings[numReadings];      // the readings from the analog input
@@ -91,6 +94,15 @@ void loop() {
 
 
 
+
+  double x_Buff = float(xval);
+  double y_Buff = float(yval);
+  double z_Buff = float(zval);
+  pitch = atan2(y_Buff , z_Buff) * 57.3;
+  // roll = atan2((- x_Buff) , sqrt(y_Buff * y_Buff + z_Buff * z_Buff)) * 57.3;
+
+
+
   total = total - readings[readIndex];
   // read from the sensor:
   readings[readIndex] = analogRead(xpin);
@@ -108,13 +120,13 @@ void loop() {
   // calculate the average:
   average = total / numReadings;
 
-
-
+  Serial.print("pitch ");
+  Serial.println(pitch);
 
 
   // print the sensor values:
   Serial.print("accel ");
-  Serial.println(average - startVal);
+  Serial.println(average);
   //  // print a tab between values:
   //  Serial.print("\t");
   //  Serial.print(analogRead(ypin));
