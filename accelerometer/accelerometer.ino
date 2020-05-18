@@ -86,14 +86,14 @@ void loop() {
   value1 = analogRead(flexPin1);         //Read and save analog value from potentiometer
   value2 = analogRead(flexPin2);
   value3 = analogRead(flexPin3);
-  Serial.print("flex1 ");
-
-  Serial.println(value1);               //Print value
-  Serial.print("flex2 ");
-  Serial.println(value2);
-  int flex3 = map(value3, 87, 79, 0, 1) * 2;
-  Serial.print("flex3 ");
-  Serial.println(flex3);
+//  Serial.print("flex1 ");
+//
+//  Serial.println(value1);               //Print value
+//  Serial.print("flex2 ");
+//  Serial.println(value2);
+//  int flex3 = map(value3, 87, 79, 0, 1) * 2;
+//  Serial.print("flex3 ");
+//  Serial.println(flex3);
   lastValue3 = value3;
 
   //  accel = sqrt(sq(xval)+sq(yval)+sq(zval));
