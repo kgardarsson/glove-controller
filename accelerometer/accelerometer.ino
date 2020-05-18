@@ -30,6 +30,10 @@ const int powerpin = 19;              // analog input pin 5 -- voltage
 const int xpin = A0;                  // x-axis of the accelerometer
 const int ypin = A1;                  // y-axis
 const int zpin = A2;                  // z-axis (only on 3-axis models)
+const int flexPin1 = A5; //pin A0 to read analog input
+const int flexPin2 = A3;
+const int flexPin3 = A4;
+const int accXPin = A0;
 
 
 // Define the number of samples to keep track of. The higher the number, the
@@ -39,6 +43,10 @@ const int zpin = A2;                  // z-axis (only on 3-axis models)
 const int numReadings = 30;
 
 
+int value1; //save analog value
+int value2;
+int value3;
+int lastValue3 = 0;
 int xval;
 int yval;
 int zval;
@@ -66,6 +74,19 @@ void loop() {
   yval = analogRead(ypin);
   zval = analogRead(zpin);
 
+  value1 = analogRead(flexPin1);         //Read and save analog value from potentiometer
+  value2 = analogRead(flexPin2);
+  value3 = analogRead(flexPin3);
+  Serial.print("flex1 ");
+
+  Serial.println(value1);               //Print value
+  Serial.print("flex2 ");
+  Serial.println(value2);
+  int flex3 = map(value3, 87, 79, 0, 1) * 2;
+  Serial.print("flex3 ");
+  Serial.println(flex3);
+  lastValue3 = value3;
+
   //  accel = sqrt(sq(xval)+sq(yval)+sq(zval));
 
 
@@ -92,6 +113,7 @@ void loop() {
 
 
   // print the sensor values:
+  Serial.print("accel ");
   Serial.println(average - startVal);
   //  // print a tab between values:
   //  Serial.print("\t");
