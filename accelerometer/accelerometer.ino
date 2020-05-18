@@ -41,6 +41,7 @@ const int accXPin = A0;
 // the input. Using a constant rather than a normal variable lets us use this
 // value to determine the size of the accReadings array.
 const int numAccReadings = 30;
+const int numPitchReadings = 30;
 
 
 int value1; //save analog value
