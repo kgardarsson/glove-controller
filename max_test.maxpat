@@ -44,8 +44,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 460.0, 395.0, 50.0, 22.0 ],
-					"text" : "-15"
+					"patching_rect" : [ 414.0, 385.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -588,7 +587,7 @@
 					"numinlets" : 5,
 					"numoutlets" : 5,
 					"outlettype" : [ "", "", "", "", "" ],
-					"patching_rect" : [ 220.5, 348.0, 153.0, 22.0 ],
+					"patching_rect" : [ 215.0, 352.0, 266.0, 22.0 ],
 					"text" : "route flex1 flex2 flex3 accel"
 				}
 
