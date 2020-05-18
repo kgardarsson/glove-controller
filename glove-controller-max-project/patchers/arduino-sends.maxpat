@@ -39,12 +39,25 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"comment" : "",
+					"id" : "obj-1",
+					"index" : 2,
+					"maxclass" : "outlet",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 479.0, 540.0, 30.0, 30.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-18",
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 228.0, 502.0, 50.0, 22.0 ]
+					"patching_rect" : [ 228.0, 502.0, 50.0, 22.0 ],
+					"text" : "0 0 0"
 				}
 
 			}
@@ -125,7 +138,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 207.0, 136.0, 140.0, 22.0 ],
-									"text" : "if $i1 > 150 then 1 else 2"
+									"text" : "if $i1 > 175 then 1 else 2"
 								}
 
 							}
@@ -255,6 +268,7 @@
 						"tags" : "",
 						"style" : "",
 						"subpatcher_template" : "",
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-23",
@@ -263,7 +277,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 207.0, 136.0, 140.0, 22.0 ],
-									"text" : "if $i1 > 220 then 1 else 2"
+									"text" : "if $i1 < 350 then 1 else 2"
 								}
 
 							}
@@ -275,7 +289,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 50.0, 100.0, 176.0, 22.0 ],
-									"text" : "if $i1 > 260 then 0 else out2 $i1"
+									"text" : "if $i1 < 310 then 0 else out2 $i1"
 								}
 
 							}
@@ -368,7 +382,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 315.5, 385.0, 50.0, 22.0 ],
-					"text" : "205"
+					"text" : "202"
 				}
 
 			}
@@ -380,7 +394,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 228.0, 385.0, 50.0, 22.0 ],
-					"text" : "276"
+					"text" : "273"
 				}
 
 			}
@@ -436,11 +450,11 @@
 				"box" : 				{
 					"id" : "obj-7",
 					"maxclass" : "newobj",
-					"numinlets" : 4,
-					"numoutlets" : 4,
-					"outlettype" : [ "", "", "", "" ],
-					"patching_rect" : [ 215.0, 361.0, 283.0, 22.0 ],
-					"text" : "route flex1 flex2 flex3"
+					"numinlets" : 5,
+					"numoutlets" : 5,
+					"outlettype" : [ "", "", "", "", "" ],
+					"patching_rect" : [ 215.0, 361.0, 371.0, 22.0 ],
+					"text" : "route flex1 flex2 flex3 accel"
 				}
 
 			}
@@ -597,6 +611,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-22", 0 ],
 					"source" : [ "obj-6", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-7", 3 ]
 				}
 
 			}
