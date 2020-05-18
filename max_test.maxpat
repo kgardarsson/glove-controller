@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 56.0, 759.0, 710.0 ],
+		"rect" : [ 34.0, 79.0, 759.0, 710.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -38,6 +38,18 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-15",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 460.0, 395.0, 50.0, 22.0 ],
+					"text" : "-15"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-30",
 					"maxclass" : "number",
@@ -492,8 +504,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 355.0, 385.0, 50.0, 22.0 ],
-					"text" : "83"
+					"patching_rect" : [ 350.0, 395.0, 50.0, 22.0 ],
+					"text" : "0"
 				}
 
 			}
@@ -504,8 +516,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 292.5, 385.0, 50.0, 22.0 ],
-					"text" : "205"
+					"patching_rect" : [ 287.5, 395.0, 50.0, 22.0 ],
+					"text" : "185"
 				}
 
 			}
@@ -516,8 +528,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 225.5, 385.0, 50.0, 22.0 ],
-					"text" : "276"
+					"patching_rect" : [ 220.5, 395.0, 50.0, 22.0 ],
+					"text" : "264"
 				}
 
 			}
@@ -573,11 +585,11 @@
 				"box" : 				{
 					"id" : "obj-7",
 					"maxclass" : "newobj",
-					"numinlets" : 4,
-					"numoutlets" : 4,
-					"outlettype" : [ "", "", "", "" ],
-					"patching_rect" : [ 215.0, 361.0, 205.0, 22.0 ],
-					"text" : "route flex1 flex2 flex3"
+					"numinlets" : 5,
+					"numoutlets" : 5,
+					"outlettype" : [ "", "", "", "", "" ],
+					"patching_rect" : [ 220.5, 348.0, 153.0, 22.0 ],
+					"text" : "route flex1 flex2 flex3 accel"
 				}
 
 			}
@@ -612,8 +624,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "" ],
-					"patching_rect" : [ 215.0, 176.0, 73.0, 22.0 ],
-					"text" : "serial j 9600"
+					"patching_rect" : [ 215.0, 176.0, 77.0, 22.0 ],
+					"text" : "serial d 9600"
 				}
 
 			}
@@ -749,6 +761,13 @@
 					"destination" : [ "obj-14", 1 ],
 					"order" : 0,
 					"source" : [ "obj-7", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-15", 1 ],
+					"source" : [ "obj-7", 3 ]
 				}
 
 			}
