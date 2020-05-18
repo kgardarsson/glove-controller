@@ -37,10 +37,10 @@ const int accXPin = A0;
 
 
 // Define the number of samples to keep track of. The higher the number, the
-// more the readings will be smoothed, but the slower the output will respond to
+// more the accReadings will be smoothed, but the slower the output will respond to
 // the input. Using a constant rather than a normal variable lets us use this
-// value to determine the size of the readings array.
-const int numReadings = 30;
+// value to determine the size of the accReadings array.
+const int numAccReadings = 30;
 
 
 int value1; //save analog value
@@ -55,18 +55,24 @@ double roll = 0.00, pitch = 0.00;       //Roll & Pitch are the angles which rota
 
 int accel;
 
-int readings[numReadings];      // the readings from the analog input
-int readIndex = 0;              // the index of the current reading
-int total = 0;                  // the running total
-int average = 0;                // the average
+int accReadings[numAccReadings];      // the accReadings from the analog input
+int readAcc = 0;              // the index of the current reading
+int totalAcc = 0;                  // the running totalAcc
+int averageAcc = 0;                // the averageAcc
+
+int pitchReadings[numPitchReadings];    
+int readPitch = 0;              
+int totalPitch = 0;                 
+int averagePitch = 0;     
+
 int startVal;                   // start value for calibrating
 
 void setup() {
   // initialize the serial communications:
   Serial.begin(9600);
 
-  for (int thisReading = 0; thisReading < numReadings; thisReading++) {
-    readings[thisReading] = 0;
+  for (int thisReading = 0; thisReading < numAccReadings; thisReading++) {
+    accReadings[thisReading] = 0;
   }
 
   startVal = analogRead(xpin);
@@ -102,31 +108,51 @@ void loop() {
   // roll = atan2((- x_Buff) , sqrt(y_Buff * y_Buff + z_Buff * z_Buff)) * 57.3;
 
 
-
-  total = total - readings[readIndex];
+// ------------------------------------------------------------ AVG ACCELERATION
+  totalAcc = totalAcc - accReadings[readAcc];
   // read from the sensor:
-  readings[readIndex] = analogRead(xpin);
-  // add the reading to the total:
-  total = total + readings[readIndex];
+  accReadings[readAcc] = analogRead(xpin);
+  // add the reading to the totalAcc:
+  totalAcc = totalAcc + accReadings[readAcc];
   // advance to the next position in the array:
-  readIndex = readIndex + 1;
+  readAcc = readAcc + 1;
 
   // if we're at the end of the array...
-  if (readIndex >= numReadings) {
+  if (readAcc >= numAccReadings) {
     // ...wrap around to the beginning:
-    readIndex = 0;
+    readAcc = 0;
   }
 
-  // calculate the average:
-  average = total / numReadings;
+  // calculate the averageAcc:
+  averageAcc = totalAcc / numAccReadings;
+
+// ------------------------------------------------------------ PITCH
+  totalPitch = totalPitch - pitchReadings[readPitch];
+  // read from the sensor:
+  pitchReadings[readPitch] = analogRead(pitch);
+  // add the reading to the totalAcc:
+  totalPitch = totalPitch + pitchReadings[readPitch];
+  // advance to the next position in the array:
+  readPitch = readPitch + 1;
+
+  // if we're at the end of the array...
+  if (readPitch >= numPitchReadings) {
+    // ...wrap around to the beginning:
+    readPitch = 0;
+  }
+
+  // calculate the averageAcc:
+  averagePitch = totalPitch / numPitchReadings;
+
+// ------------------------------------------------------------
 
   Serial.print("pitch ");
-  Serial.println(pitch);
+  Serial.println(averagePitch);
 
 
   // print the sensor values:
   Serial.print("accel ");
-  Serial.println(average);
+  Serial.println(averageAcc);
   //  // print a tab between values:
   //  Serial.print("\t");
   //  Serial.print(analogRead(ypin));
