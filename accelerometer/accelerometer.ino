@@ -30,10 +30,10 @@ const int powerpin = 19;              // analog input pin 5 -- voltage
 const int xpin = A0;                  // x-axis of the accelerometer
 const int ypin = A1;                  // y-axis
 const int zpin = A2;                  // z-axis (only on 3-axis models)
-const int flexPin1 = A5; //pin A0 to read analog input
-const int flexPin2 = A3;
-const int flexPin3 = A4;
-const int accXPin = A0;
+const int flexPin1 = A3;
+const int flexPin2 = A4;
+const int flexPin3 = A5;
+
 
 
 // Define the number of samples to keep track of. The higher the number, the
@@ -41,7 +41,7 @@ const int accXPin = A0;
 // the input. Using a constant rather than a normal variable lets us use this
 // value to determine the size of the accReadings array.
 const int numAccReadings = 30;
-const int numPitchReadings = 30;
+const int numPitchReadings = 10;
 
 
 int value1; //save analog value
@@ -61,10 +61,10 @@ int readAcc = 0;              // the index of the current reading
 int totalAcc = 0;                  // the running totalAcc
 int averageAcc = 0;                // the averageAcc
 
-int pitchReadings[numPitchReadings];    
-int readPitch = 0;              
-int totalPitch = 0;                 
-int averagePitch = 0;     
+int pitchReadings[numPitchReadings];
+int readPitch = 0;
+int totalPitch = 0;
+int averagePitch = 0;
 
 int startVal;                   // start value for calibrating
 
@@ -92,12 +92,13 @@ void loop() {
   Serial.println(value1);               //Print value
   Serial.print("flex2 ");
   Serial.println(value2);
-  int flex3 = map(value3, 87, 79, 0, 1) * 2;
+
+
+  int flex3 = map(value3, 930, 960, 0, 1)*2;
   Serial.print("flex3 ");
   Serial.println(flex3);
-  lastValue3 = value3;
 
-  //  accel = sqrt(sq(xval)+sq(yval)+sq(zval));
+
 
 
 
@@ -109,7 +110,7 @@ void loop() {
   // roll = atan2((- x_Buff) , sqrt(y_Buff * y_Buff + z_Buff * z_Buff)) * 57.3;
 
 
-// ------------------------------------------------------------ AVG ACCELERATION
+  // ------------------------------------------------------------ AVG ACCELERATION
   totalAcc = totalAcc - accReadings[readAcc];
   // read from the sensor:
   accReadings[readAcc] = analogRead(xpin);
@@ -127,28 +128,12 @@ void loop() {
   // calculate the averageAcc:
   averageAcc = totalAcc / numAccReadings;
 
-// ------------------------------------------------------------ AVG PITCH
-  totalPitch = totalPitch - pitchReadings[readPitch];
-  // read from the sensor:
-  pitchReadings[readPitch] = analogRead(pitch);
-  // add the reading to the totalAcc:
-  totalPitch = totalPitch + pitchReadings[readPitch];
-  // advance to the next position in the array:
-  readPitch = readPitch + 1;
 
-  // if we're at the end of the array...
-  if (readPitch >= numPitchReadings) {
-    // ...wrap around to the beginning:
-    readPitch = 0;
-  }
 
-  // calculate the averageAcc:
-  averagePitch = totalPitch / numPitchReadings;
-
-// ------------------------------------------------------------
+  // ------------------------------------------------------------
 
   Serial.print("pitch ");
-  Serial.println(averagePitch);
+  Serial.println(pitch);
 
 
   // print the sensor values:
