@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 79.0, 891.0, 710.0 ],
+		"rect" : [ 34.0, 56.0, 1212.0, 710.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -332,7 +332,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 586.0, 452.0, 50.0, 22.0 ],
-					"text" : "-0.274"
+					"text" : "0.7"
 				}
 
 			}
@@ -356,7 +356,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 580.0, 507.0, 50.0, 22.0 ],
-					"text" : "0"
+					"text" : "0.7"
 				}
 
 			}
@@ -416,7 +416,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 493.0, 385.0, 50.0, 22.0 ],
-					"text" : "539"
+					"text" : "489"
 				}
 
 			}
@@ -428,7 +428,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 581.0, 385.0, 50.0, 22.0 ],
-					"text" : "52.74"
+					"text" : "43"
 				}
 
 			}
@@ -436,7 +436,7 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-14",
-					"index" : 0,
+					"index" : 3,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -448,7 +448,7 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-1",
-					"index" : 0,
+					"index" : 2,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -464,7 +464,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 228.0, 502.0, 50.0, 22.0 ],
-					"text" : "1 0 0"
+					"text" : "0 0 0"
 				}
 
 			}
@@ -484,7 +484,7 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-11",
-					"index" : 0,
+					"index" : 1,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -650,7 +650,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 316.5, 391.0, 50.0, 22.0 ],
-					"text" : "856"
+					"text" : "836"
 				}
 
 			}
@@ -662,7 +662,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 228.0, 391.0, 50.0, 22.0 ],
-					"text" : "762"
+					"text" : "757"
 				}
 
 			}
@@ -757,8 +757,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "" ],
-					"patching_rect" : [ 215.0, 176.0, 77.0, 22.0 ],
-					"text" : "serial d 9600"
+					"patching_rect" : [ 215.0, 176.0, 73.0, 22.0 ],
+					"text" : "serial j 9600"
 				}
 
 			}
@@ -1037,9 +1037,7 @@
 				}
 
 			}
- ],
-		"dependency_cache" : [  ],
-		"autosave" : 0
+ ]
 	}
 
 }
