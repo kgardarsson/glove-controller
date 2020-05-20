@@ -32,7 +32,7 @@ int averageAcc = 0;                   // the average acceleration
 int pitchReadings[numPitchReadings];      // the pitch readings from the pitch calculation
 int pitchIndex = 0;                  // the index of the current reading
 int totalPitch = 0;                  // the running total
-int averagePitch = 0;                // the average pitch
+float averagePitch = 0;                // the average pitch
 
 
 void setup() {
