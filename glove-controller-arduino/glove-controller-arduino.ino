@@ -23,15 +23,15 @@ int zVal;
 double roll = 0.00, pitch = 0.00;     //Roll & Pitch are the angles which rotate by the axis X and y
 
 // Variables for smoothing acceleration readings
-int accReadings[numAccReadings];      // the acceleration readings from the analog input for axis X
+float accReadings[numAccReadings];      // the acceleration readings from the analog input for axis X
 int accIndex = 0;                     // the index of the current reading
-int totalAcc = 0;                     // the running total
-int averageAcc = 0;                   // the average acceleration
+float totalAcc = 0;                     // the running total
+float averageAcc = 0;                   // the average acceleration
 
 // Variables for smoothing pitch (rotation around side-to-side axis) readings
-int pitchReadings[numPitchReadings];      // the pitch readings from the pitch calculation
+float pitchReadings[numPitchReadings];      // the pitch readings from the pitch calculation
 int pitchIndex = 0;                  // the index of the current reading
-int totalPitch = 0;                  // the running total
+float totalPitch = 0;                  // the running total
 float averagePitch = 0;                // the average pitch
 
 
